@@ -20,8 +20,8 @@ public class ChristmasListController {
     }
 
     @PostMapping
-    public void saveChristmasList(@RequestBody ChristmasList list) {
-        service.saveChristmasList(list);
+    public ChristmasList saveChristmasList(@RequestBody ChristmasList list) {
+        return service.saveChristmasList(list);
     }
 }
 

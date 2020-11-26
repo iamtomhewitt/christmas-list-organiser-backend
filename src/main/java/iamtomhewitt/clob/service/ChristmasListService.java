@@ -23,8 +23,9 @@ public class ChristmasListService {
         return christmasList.get();
     }
 
-    public void saveChristmasList(ChristmasList list) {
+    public ChristmasList saveChristmasList(ChristmasList list) {
         christmasListRepository.deleteByBelongsTo(list.getBelongsTo());
         christmasListRepository.save(list);
+        return list;
     }
 }
