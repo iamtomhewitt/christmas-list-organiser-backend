@@ -6,6 +6,7 @@ import iamtomhewitt.clob.repository.ChristmasListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,11 @@ public class ChristmasListService {
         }
 
         return christmasList.get();
+    }
+
+    public List<ChristmasList> getAllChristmasLists() {
+        List<ChristmasList> christmasLists = christmasListRepository.findAll();
+        return christmasLists;
     }
 
     public ChristmasList saveChristmasList(ChristmasList list) {
