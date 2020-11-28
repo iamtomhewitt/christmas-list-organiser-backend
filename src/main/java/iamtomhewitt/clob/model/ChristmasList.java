@@ -17,14 +17,3 @@ public class ChristmasList {
 
     public ChristmasList() {}
 }
-
-@Data
-@Builder
-@AllArgsConstructor
-class ChristmasListItem {
-    private String name;
-    private String dibbedBy;
-    private boolean dibbed;
-
-    public ChristmasListItem () {}
-}

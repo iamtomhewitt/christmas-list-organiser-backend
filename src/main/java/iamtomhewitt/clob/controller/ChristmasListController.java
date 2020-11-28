@@ -1,5 +1,6 @@
 package iamtomhewitt.clob.controller;
 
+import iamtomhewitt.clob.exception.ItemNotFoundException;
 import iamtomhewitt.clob.exception.NoChristmasListException;
 import iamtomhewitt.clob.model.ChristmasList;
 import iamtomhewitt.clob.service.ChristmasListService;
@@ -29,6 +30,11 @@ public class ChristmasListController {
     @PostMapping
     public ChristmasList saveChristmasList(@RequestBody ChristmasList list) {
         return service.saveChristmasList(list);
+    }
+
+    @PutMapping
+    public ChristmasList dibItem(@RequestParam String itemName, @RequestParam(name = "email") String belongsTo, @RequestParam String dibbedBy) throws NoChristmasListException, ItemNotFoundException {
+        return service.dibItem(itemName, belongsTo, dibbedBy);
     }
 }
 
