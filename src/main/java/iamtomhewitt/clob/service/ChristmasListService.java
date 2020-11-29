@@ -1,7 +1,10 @@
 package iamtomhewitt.clob.service;
 
+import iamtomhewitt.clob.exception.ItemNotFoundException;
 import iamtomhewitt.clob.exception.NoChristmasListException;
+import iamtomhewitt.clob.model.Account;
 import iamtomhewitt.clob.model.ChristmasList;
+import iamtomhewitt.clob.model.ChristmasListItem;
 import iamtomhewitt.clob.repository.ChristmasListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,13 +28,33 @@ public class ChristmasListService {
     }
 
     public List<ChristmasList> getAllChristmasLists() {
-        List<ChristmasList> christmasLists = christmasListRepository.findAll();
-        return christmasLists;
+        return christmasListRepository.findAll();
     }
 
     public ChristmasList saveChristmasList(ChristmasList list) {
         christmasListRepository.deleteByBelongsTo(list.getBelongsTo());
         christmasListRepository.save(list);
         return list;
+    }
+
+    public ChristmasList dibItem(String itemName, String listOwner, Account dibbedBy) throws NoChristmasListException, ItemNotFoundException {
+        ChristmasList currentList = getChristmasList(listOwner);
+
+        Optional<ChristmasListItem> optionalItem = currentList.getItems()
+                .stream()
+                .filter(i -> i.getName().equals(itemName))
+                .findFirst();
+
+        if(!optionalItem.isPresent()) {
+            throw new ItemNotFoundException(itemName);
+        }
+
+        ChristmasListItem item = optionalItem.get();
+        item.setDibbed(true);
+        item.setDibbedBy(dibbedBy);
+
+        this.saveChristmasList(currentList);
+
+        return currentList;
     }
 }
