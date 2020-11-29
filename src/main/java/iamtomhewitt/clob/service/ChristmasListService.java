@@ -2,6 +2,7 @@ package iamtomhewitt.clob.service;
 
 import iamtomhewitt.clob.exception.ItemNotFoundException;
 import iamtomhewitt.clob.exception.NoChristmasListException;
+import iamtomhewitt.clob.model.Account;
 import iamtomhewitt.clob.model.ChristmasList;
 import iamtomhewitt.clob.model.ChristmasListItem;
 import iamtomhewitt.clob.repository.ChristmasListRepository;
@@ -36,8 +37,8 @@ public class ChristmasListService {
         return list;
     }
 
-    public ChristmasList dibItem(String itemName, String belongsTo, String dibbedBy) throws NoChristmasListException, ItemNotFoundException {
-        ChristmasList currentList = getChristmasList(belongsTo);
+    public ChristmasList dibItem(String itemName, String listOwner, Account dibbedBy) throws NoChristmasListException, ItemNotFoundException {
+        ChristmasList currentList = getChristmasList(listOwner);
 
         Optional<ChristmasListItem> optionalItem = currentList.getItems()
                 .stream()

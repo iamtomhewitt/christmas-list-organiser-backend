@@ -1,8 +1,11 @@
 package iamtomhewitt.clob.controller;
 
+import iamtomhewitt.clob.exception.AccountNotFoundException;
 import iamtomhewitt.clob.exception.ItemNotFoundException;
 import iamtomhewitt.clob.exception.NoChristmasListException;
+import iamtomhewitt.clob.model.Account;
 import iamtomhewitt.clob.model.ChristmasList;
+import iamtomhewitt.clob.service.AccountService;
 import iamtomhewitt.clob.service.ChristmasListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,9 @@ public class ChristmasListController {
 
     @Autowired
     private ChristmasListService service;
+
+    @Autowired
+    private AccountService accountService;
 
     @GetMapping
     public ChristmasList getChristmasList(@RequestParam String email) throws NoChristmasListException {
@@ -33,8 +39,9 @@ public class ChristmasListController {
     }
 
     @PutMapping
-    public ChristmasList dibItem(@RequestParam String itemName, @RequestParam(name = "email") String belongsTo, @RequestParam String dibbedBy) throws NoChristmasListException, ItemNotFoundException {
-        return service.dibItem(itemName, belongsTo, dibbedBy);
+    public ChristmasList dibItem(@RequestParam String itemName, @RequestParam String listOwner, @RequestParam String dibbedBy) throws NoChristmasListException, ItemNotFoundException, AccountNotFoundException {
+        Account account = accountService.getAccount(dibbedBy);
+        return service.dibItem(itemName, listOwner, account);
     }
 }
 

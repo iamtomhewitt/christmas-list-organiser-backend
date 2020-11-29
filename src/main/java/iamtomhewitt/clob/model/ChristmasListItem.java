@@ -9,7 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ChristmasListItem {
     private String name;
-    private String dibbedBy;
+    private Account dibbedBy;
     private boolean dibbed;
 
     public ChristmasListItem() {
