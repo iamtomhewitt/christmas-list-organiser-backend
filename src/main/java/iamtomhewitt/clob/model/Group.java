@@ -5,16 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-@Document("lists")
+@Document("groups")
 @Data
 @Builder
 @AllArgsConstructor
-public class ChristmasList {
-    private String belongsTo;
-    private List<ChristmasListItem> items;
-    private List<String> groups;
+public class Group {
+    private String name;
 
-    public ChristmasList() {}
+    public Group() {}
 }
