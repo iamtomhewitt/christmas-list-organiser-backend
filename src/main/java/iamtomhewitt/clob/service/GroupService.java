@@ -25,11 +25,10 @@ public class GroupService {
     private ChristmasListService christmasListService;
 
     public List<String> getGroups() {
-        List<String> names = groupRepository.findAll()
+        return groupRepository.findAll()
                 .stream()
                 .map(Group::getName)
                 .collect(toList());
-        return names;
     }
 
     public void createGroup(String name) throws GroupExistsException {
@@ -53,5 +52,15 @@ public class GroupService {
         }
 
         christmasListService.saveChristmasList(list);
+    }
+
+    public void leaveGroup(String email, String group) throws NoChristmasListException {
+        ChristmasList list = christmasListService.getChristmasList(email);
+
+        if (list.getGroups() != null) {
+            list.getGroups().remove(group);
+        }
+
+        christmasListService.savecChristmasList(list);
     }
 }

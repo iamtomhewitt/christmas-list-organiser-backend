@@ -31,9 +31,14 @@ public class GroupController {
         service.createGroup(name);
     }
 
-    @PutMapping
+    @PutMapping("/join")
     private void joinGroup(@RequestParam String email, @RequestParam String name) throws NoChristmasListException, GroupNotFoundException {
         service.joinGroup(email, name);
+    }
+
+    @PutMapping("/leave")
+    private void leaveGroup(@RequestParam String email, @RequestParam String name) throws NoChristmasListException, GroupNotFoundException {
+        service.leaveGroup(email, name);
     }
 }
 
