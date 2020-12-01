@@ -61,6 +61,6 @@ public class GroupService {
             list.getGroups().remove(group);
         }
 
-        christmasListService.savecChristmasList(list);
+        christmasListService.saveChristmasList(list);
     }
 }
