@@ -19,7 +19,7 @@ public class ChristmasListService {
     private ChristmasListRepository christmasListRepository;
 
     public ChristmasList getChristmasList(String email) throws NoChristmasListException {
-        Optional<ChristmasList> christmasList = christmasListRepository.findByBelongsTo(email);
+        Optional<ChristmasList> christmasList = christmasListRepository.findByEmail(email);
         if (!christmasList.isPresent()) {
             throw new NoChristmasListException(email);
         }
@@ -32,7 +32,7 @@ public class ChristmasListService {
     }
 
     public ChristmasList saveChristmasList(ChristmasList list) {
-        christmasListRepository.deleteByBelongsTo(list.getBelongsTo());
+        christmasListRepository.deleteByEmail(list.getBelongsTo().getEmail());
         christmasListRepository.save(list);
         return list;
     }

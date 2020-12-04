@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class ChristmasList {
-    private String belongsTo;
+    private Account belongsTo;
     private List<ChristmasListItem> items;
     private List<String> groups;
 
