@@ -9,6 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ChristmasListItem {
     private String name;
+    private String image;
     private Account dibbedBy;
     private boolean dibbed;
 
