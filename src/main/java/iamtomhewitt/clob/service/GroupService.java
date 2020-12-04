@@ -45,6 +45,12 @@ public class GroupService {
     public void joinGroup(String email, String group) throws GroupNotFoundException, NoChristmasListException {
         ChristmasList list = christmasListService.getChristmasList(email);
 
+        Optional<Group> existingGroup = groupRepository.findByName(group);
+
+        if (!existingGroup.isPresent()) {
+            throw new GroupNotFoundException(group);
+        }
+
         if (list.getGroups() == null) {
             list.setGroups(singletonList(group));
         } else {

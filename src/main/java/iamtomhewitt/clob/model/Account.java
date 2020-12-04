@@ -15,5 +15,6 @@ public class Account {
     private String firstName;
     private String lastName;
 
-    public Account() {}
+    public Account() {
+    }
 }

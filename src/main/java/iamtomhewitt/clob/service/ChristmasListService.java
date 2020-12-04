@@ -45,7 +45,7 @@ public class ChristmasListService {
                 .filter(i -> i.getName().equals(itemName))
                 .findFirst();
 
-        if(!optionalItem.isPresent()) {
+        if (!optionalItem.isPresent()) {
             throw new ItemNotFoundException(itemName);
         }
 

@@ -16,5 +16,6 @@ public class ChristmasList {
     private List<ChristmasListItem> items;
     private List<String> groups;
 
-    public ChristmasList() {}
+    public ChristmasList() {
+    }
 }

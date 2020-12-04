@@ -12,5 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Group {
     private String name;
 
-    public Group() {}
+    public Group() {
+    }
 }
