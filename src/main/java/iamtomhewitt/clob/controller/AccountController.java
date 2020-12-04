@@ -6,8 +6,12 @@ import iamtomhewitt.clob.exception.InvalidAccountException;
 import iamtomhewitt.clob.model.Account;
 import iamtomhewitt.clob.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/account")
@@ -28,8 +32,15 @@ public class AccountController {
     }
 
     @PostMapping
-    public void createAccount(@RequestBody Account account) throws AccountExistsException, AccountNotFoundException {
+    public ResponseEntity<Map<String, String>> createAccount(@RequestBody Account account) throws AccountExistsException, AccountNotFoundException {
         service.createAccount(account);
+        return new ResponseEntity<>(createSuccessBody(), HttpStatus.OK);
+    }
+
+    private Map<String, String> createSuccessBody() {
+        Map<String, String> body = new HashMap<>();
+        body.put("status", "ok");
+        return body;
     }
 }
 

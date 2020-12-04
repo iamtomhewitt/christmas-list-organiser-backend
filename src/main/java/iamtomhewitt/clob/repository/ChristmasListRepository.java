@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface ChristmasListRepository extends MongoRepository<ChristmasList, String> {
     Optional<ChristmasList> findByBelongsTo(String belongsTo);
+
     void deleteByBelongsTo(String belongsTo);
 }
