@@ -44,7 +44,7 @@ public class AccountController {
         service.createAccount(account);
 
         ChristmasList list = ChristmasList.builder()
-                .belongsTo(account.getEmail())
+                .belongsTo(account)
                 .groups(emptyList())
                 .items(emptyList())
                 .build();
