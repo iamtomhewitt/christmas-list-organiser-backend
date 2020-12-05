@@ -20,7 +20,6 @@ import static java.util.Collections.emptyList;
 
 @RestController
 @RequestMapping("/account")
-@CrossOrigin(origins = "http://localhost:3000")
 public class AccountController {
 
     @Autowired
