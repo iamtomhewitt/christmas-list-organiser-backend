@@ -1,0 +1,14 @@
+{
+    "name": "christmas-list-organiser-backend",
+    "version": "1.0.0",
+    "author": "Tom Hewitt",
+    "scripts": {
+        "release": "github-releaser"
+    },
+    "dependencies": {
+        "github-releaser": "1.4.0"
+    },
+    "repository": {
+        "apiUrl": "https://api.github.com/repos/iamtomhewitt/christmas-list-organiser-backend"
+    }
+}
