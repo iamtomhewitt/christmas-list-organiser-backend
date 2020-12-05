@@ -16,7 +16,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/group")
-@CrossOrigin(origins = "http://localhost:3000")
 public class GroupController {
 
     @Autowired

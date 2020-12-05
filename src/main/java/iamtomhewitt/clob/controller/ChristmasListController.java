@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/christmas-list")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ChristmasListController {
 
     @Autowired

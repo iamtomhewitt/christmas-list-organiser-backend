@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -Dspring.data.mongodb.uri=$MONGODB_URI -Dserver.port=$PORT -Dcross.origins=$CROSS_ORIGINS -jar target/*.jar
