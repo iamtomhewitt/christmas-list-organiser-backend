@@ -1,3 +1,12 @@
+## 1.1.0 (08/12/2020) 
+
+
+### Issues in this release:
+
+* [#24](https://github.com/iamtomhewitt/christmas-list-organiser-backend/issues/24) - Make item name a hyperlink
+
+
+
 ## 1.0.0 (05/12/2020) 
 
 
