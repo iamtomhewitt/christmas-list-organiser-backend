@@ -6,7 +6,7 @@
         "release": "github-releaser"
     },
     "dependencies": {
-        "github-releaser": "1.4.0"
+        "github-releaser": "1.5.0"
     },
     "repository": {
         "apiUrl": "https://api.github.com/repos/iamtomhewitt/christmas-list-organiser-backend"
